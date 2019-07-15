@@ -47,6 +47,10 @@
             <artifactId>lombok</artifactId>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+            <groupId>com.wxy</groupId>
+            <artifactId>common</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
