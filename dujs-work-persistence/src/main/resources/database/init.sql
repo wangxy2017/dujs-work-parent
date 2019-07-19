@@ -11,3 +11,14 @@ CREATE TABLE `sys_note` (
   `password` varchar(64) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `sys_bookmark` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `update_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `delete_status` int(1) NOT NULL DEFAULT '0',
+  `icon` varchar(200) NOT NULL,
+  `href` varchar(200) NOT NULL,
+  `name` varchar(200) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;

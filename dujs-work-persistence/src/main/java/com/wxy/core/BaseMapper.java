@@ -11,6 +11,8 @@ public interface BaseMapper<T> {
      */
     int save(T t);
 
+    int saveByBatch(List<T> list);
+
     /**
      * 修改对象
      *
