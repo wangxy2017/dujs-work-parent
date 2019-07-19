@@ -1,11 +1,10 @@
 package com.wxy.note.controller;
 
 import com.wxy.common.response.ApiResponse;
+import com.wxy.entity.Note;
 import com.wxy.service.NoteService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
@@ -30,5 +29,14 @@ public class NoteController {
             return ApiResponse.success();
         }
         return ApiResponse.error();
+    }
+
+    @GetMapping("/content/{id}")
+    public ApiResponse content(@PathVariable Long id) {
+        Note note = noteService.queryById(id);
+        if (note != null) {
+            return ApiResponse.success(note.getContent());
+        }
+        return ApiResponse.error(-1, "查询出错");
     }
 }
