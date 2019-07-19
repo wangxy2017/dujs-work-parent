@@ -8,4 +8,8 @@
         insert into sys_note(title,content,password)
         values(#{title},#{content},#{password})
     </insert>
+
+    <select id="queryById" parameterType="long" resultType="note">
+        select * from sys_note where id = #{id}
+    </select>
 </mapper>

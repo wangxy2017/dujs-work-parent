@@ -26,4 +26,11 @@ public class NoteMapperTest {
         int save = noteMapper.save(note);
         log.info("保存笔记 save = {}", save > 0);
     }
+
+    @Test
+    public void TestQueryById() {
+        Long id = 1L;
+        Note note = noteMapper.queryById(id);
+        log.info("根据ID查询 note = {}", note);
+    }
 }

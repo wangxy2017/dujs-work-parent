@@ -29,4 +29,15 @@ public class NoteServiceImpl implements NoteService {
         note.setContent(AESUtils.encrypt(content, note.getPassword()));
         return noteMapper.save(note);
     }
+
+    @Override
+    public Note queryById(Long id) {
+        Assert.notNull(id, "The parameter id is required");
+        Note note = noteMapper.queryById(id);
+        if (note != null) {
+            note.setContent(AESUtils.decrypt(note.getContent(), note.getPassword()));
+            return note;
+        }
+        return null;
+    }
 }

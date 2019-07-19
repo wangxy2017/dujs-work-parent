@@ -24,14 +24,14 @@ public interface BaseMapper<T> {
      *
      * @param id
      */
-    void delete(Integer id);
+    void delete(Long id);
 
     /**
      * 根据对象ID逻辑删除对象
      *
      * @param id
      */
-    void deleteActive(Integer id);
+    void deleteActive(Long id);
 
     /**
      * 条件查询对象列表
@@ -47,7 +47,7 @@ public interface BaseMapper<T> {
      * @param id
      * @return
      */
-    T queryById(Integer id);
+    T queryById(Long id);
 
     /**
      * 根据对象属性查询

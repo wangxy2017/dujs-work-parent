@@ -1,8 +1,6 @@
 package com.wxy.service;
 
-import com.wxy.common.test.AutoValues;
 import com.wxy.entity.Note;
-import com.wxy.mapper.NoteMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -24,9 +22,16 @@ public class NoteServiceTest {
 
     @Test
     public void TestSaveNote() {
-        String title = AutoValues.nextStr();
-        String content = AutoValues.nextStr();
+        String title = "测试";
+        String content = "测试内容";
         int save = noteService.saveNote(title, content);
         log.info("保存笔记 save = {}", save > 0);
+    }
+
+    @Test
+    public void TestQueryById(){
+        Long id = 10L;
+        Note note = noteService.queryById(id);
+        log.info("根据ID查询 note = {}", note);
     }
 }
