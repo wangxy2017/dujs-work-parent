@@ -43,4 +43,10 @@ public class BookmarkMapperTest {
         int save = bookmarkMapper.saveByBatch(list);
         log.info("批量保存书签 save = {}", save);
     }
+
+    @Test
+    public void TestQueryList(){
+        List<Bookmark> list = bookmarkMapper.queryList(null);
+        log.info("查询书签列表：list = {}",list.size());
+    }
 }
