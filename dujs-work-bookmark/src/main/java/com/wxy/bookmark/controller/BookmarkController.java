@@ -35,18 +35,28 @@ public class BookmarkController {
     public ApiResponse upload(@RequestParam("file") MultipartFile file) throws IOException {
         log.info("上传文件：file = {}", file.getOriginalFilename());
         if (file.getOriginalFilename().endsWith(".html")) {
-            File tempFile = new File("tmp-" + IDUtils.getUUID() + ".html");
+            // 创建临时文件
+            File tmp = new File("tmp");
+            if (!tmp.exists()) {
+                tmp.mkdir();
+            }
+            File tempFile = new File(tmp.getPath() + File.separator + IDUtils.getUUID() + ".html");
+            if (!tempFile.exists()) {
+                tempFile.createNewFile();
+            }
             file.transferTo(tempFile);
-            List<Bookmark> bookmarks = new ArrayList<>();
-            Document document = Jsoup.parse(tempFile,"UTF-8");
-            Elements elements = document.getElementsByTag("A");
-            elements.forEach(a -> {
-                Bookmark b = new Bookmark();
-                b.setIcon("123");
-                b.setHref(a.attr("HREF"));
-                b.setName(a.html());
-                bookmarks.add(b);
-            });
+            System.out.println(tempFile.getPath());
+            // 解析文件内容
+//            List<Bookmark> bookmarks = new ArrayList<>();
+//            Document document = Jsoup.parse(tempFile, "UTF-8");
+//            Elements elements = document.getElementsByTag("A");
+//            elements.forEach(a -> {
+//                Bookmark b = new Bookmark();
+//                b.setIcon("123");
+//                b.setHref(a.attr("HREF"));
+//                b.setName(a.html());
+//                bookmarks.add(b);
+//            });
             tempFile.delete();
             return ApiResponse.success();
         }
