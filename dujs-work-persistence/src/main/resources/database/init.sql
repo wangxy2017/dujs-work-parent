@@ -31,3 +31,16 @@ CREATE TABLE `sys_category` (
   `name` varchar(64) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `sys_user` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `update_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `delete_status` int(1) NOT NULL DEFAULT '0',
+  `username` varchar(64) NOT NULL,
+  `password` varchar(64) NOT NULL,
+  `email` varchar(64) NOT NULL,
+  `salt` varchar(64) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+

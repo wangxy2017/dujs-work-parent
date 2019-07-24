@@ -11,6 +11,7 @@
         <module>dujs-work-persistence</module>
         <module>dujs-work-notebook</module>
         <module>dujs-work-bookmark</module>
+        <module>dujs-work-management</module>
     </modules>
     <packaging>pom</packaging>
 
