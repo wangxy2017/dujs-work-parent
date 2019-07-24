@@ -1,9 +1,10 @@
-package com.wxy.service;
+package com.wxy.service.impl;
 
 import com.wxy.common.encryption.AESUtils;
 import com.wxy.common.tool.CodeUtils;
 import com.wxy.entity.Note;
 import com.wxy.mapper.NoteMapper;
+import com.wxy.service.NoteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;

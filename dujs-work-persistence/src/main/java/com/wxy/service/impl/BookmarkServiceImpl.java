@@ -1,7 +1,8 @@
-package com.wxy.service;
+package com.wxy.service.impl;
 
 import com.wxy.entity.Bookmark;
 import com.wxy.mapper.BookmarkMapper;
+import com.wxy.service.BookmarkService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
