@@ -1,8 +1,8 @@
 package com.wxy.note.controller;
 
 import com.wxy.common.response.ApiResponse;
-import com.wxy.entity.NoteClass;
-import com.wxy.service.NoteClassService;
+import com.wxy.entity.Category;
+import com.wxy.service.CategoryService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,18 +15,18 @@ import java.util.List;
  * @Date 19-7-24 下午1:35
  * @Description TODO
  **/
-@Api(description = "笔记分类管理")
+@Api(description = "分类管理")
 @RestController
-@RequestMapping("/noteClass")
-public class NoteClassController {
+@RequestMapping("/category")
+public class CategoryController {
 
     @Autowired
-    private NoteClassService noteClassService;
+    private CategoryService categoryService;
 
     @ApiOperation(value = "保存分类", notes = "保存分类")
     @PostMapping("/save")
     public ApiResponse save(@RequestParam String name) {
-        int i = noteClassService.saveNoteClass(name);
+        int i = categoryService.saveCategory(name);
         if (i > 0) {
             return ApiResponse.success();
         }
@@ -36,7 +36,7 @@ public class NoteClassController {
     @ApiOperation(value = "查询分类", notes = "查询分类")
     @GetMapping("/list")
     public ApiResponse findAll() {
-        List<NoteClass> list = noteClassService.findAll();
+        List<Category> list = categoryService.findAll();
         return ApiResponse.success(list);
     }
 }

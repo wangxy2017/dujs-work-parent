@@ -9,6 +9,6 @@ import lombok.Data;
  * @Description TODO
  **/
 @Data
-public class NoteClass extends BaseEntity {
+public class Category extends BaseEntity {
     private String name;
 }

@@ -1,6 +1,6 @@
 package com.wxy.service;
 
-import com.wxy.entity.NoteClass;
+import com.wxy.entity.Category;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -18,20 +18,20 @@ import java.util.List;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @Slf4j
-public class NoteClassServiceTest {
+public class CategoryServiceTest {
     @Autowired
-    private NoteClassService noteClassService;
+    private CategoryService categoryService;
 
     @Test
-    public void TestSaveNoteClass() {
+    public void TestSaveCategory() {
         String name = "默认分类";
-        int i = noteClassService.saveNoteClass(name);
+        int i = categoryService.saveCategory(name);
         log.info("保存分类 save = {}", i);
     }
 
     @Test
     public void TestFindAll() {
-        List<NoteClass> list = noteClassService.findAll();
+        List<Category> list = categoryService.findAll();
         log.info("查询分类 list = {}", list);
     }
 }
